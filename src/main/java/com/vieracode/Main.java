@@ -44,10 +44,17 @@ public class Main {
                         .reduce(0,(age1, age2)->age1+age2);
 
             System.out.println("Total: "+total);
-
             //Use of collect to converter a Stream to List
             Stream<Player> playerStream3 = list.stream();
             List<Player> playerList = playerStream3.filter((p) -> p.getPosition().equals(Position.MEDIO)).collect(Collectors.toList());
+            printPlayer(playerList);
+        }
+
+
+        public static void printPlayer(List<Player> players) {
+            for (Player player: players) {
+                System.out.println(player.getNumber() + " " + player.getName() + " " + player.getPosition());
+            }
         }
 
         public static void printPlayer(String name) {
